@@ -1,5 +1,6 @@
 #include <iostream>
 #include <wiringPi.h>
+#include "Servo.h"
 
 using namespace std;
 
@@ -7,29 +8,43 @@ using namespace std;
 
 int main()
 {
-    cout << "start" << endl;
+
     wiringPiSetup();
 
-    pinMode(PIN, PWM_OUTPUT);
-
-    pwmSetMode(PWM_MODE_MS);
-
-    pwmSetClock(192);
-    pwmSetRange(2000);
+    Servo* servo = new Servo(PIN);
+    servo->setAngle(-90);
     delay(1000);
-
-    int i = 250;
-    pwmWrite(PIN, i);
+    servo->setAngle(-25);
     delay(1000);
+    servo->setAngle(90);
+    delay(1000);
+    servo->setAngle(25);
+    delay(1000);
+    servo->setAngle(0);
+    
+    // cout << "start" << endl;
+    // wiringPiSetup();
 
-    while(i >= 55){
-        cout << i << endl;
-        pwmWrite(PIN, i);
-        i--;
+    // pinMode(PIN, PWM_OUTPUT);
+
+    // pwmSetMode(PWM_MODE_MS);
+
+    // pwmSetClock(192);
+    // pwmSetRange(2000);
+    // delay(1000);
+
+    // int i = 250;
+    // pwmWrite(PIN, i);
+    // delay(1000);
+
+    // while(i >= 55){
+    //     cout << i << endl;
+    //     pwmWrite(PIN, i);
+    //     i--;
         
-    }
+    // }
 
-    pwmWrite(PIN, 150);
+    // pwmWrite(PIN, 150);
 
     // pwmWrite(PIN, 150);
     // delay(1000);
