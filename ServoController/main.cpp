@@ -12,9 +12,10 @@ int main(){
 
     wiringPiSetup();
     
-    std::shared_ptr<IServo> servo_ptr= std::make_shared<Servo>(PIN_SERVO);
-    std::shared_ptr<IDistanceSensor> disSen_ptr=std::make_shared<DistanceSensor>(PIN_ECHO, PIN_TRIGGER);
+    auto servo_ptr= std::make_shared<Servo>(PIN_SERVO);
+    auto disSen_ptr=std::make_shared<DistanceSensor>(PIN_ECHO, PIN_TRIGGER);
 
+    //auto servoController=std::make_unique<ServoController>(servo_ptr, disSen_ptr);
     ServoController* servoController = new ServoController(servo_ptr, disSen_ptr);
 
     while (true)

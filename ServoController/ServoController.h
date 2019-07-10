@@ -5,16 +5,18 @@
 class ServoController
 {
 private:
-    int angle = 0;
+    double m_Unit;
+    int m_Angle = 0;
     std::shared_ptr<IServo> servo;
     std::shared_ptr<IDistanceSensor> distanceSensor;
+    int calculateUnit();
 
 public:
     ServoController();
     ServoController(std::shared_ptr<IServo>, std::shared_ptr<IDistanceSensor>);
 
     ~ServoController();
-    void calculateAngle();
     void runServoToAngle();
+    void calculateAngle();
 
 };
