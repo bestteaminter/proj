@@ -13,7 +13,9 @@ ServoController::ServoController(std::shared_ptr<IServo> servo_ptr, std::shared_
 }
 
 void ServoController::calculateAngle(){
+    
     int tempDistance=distanceSensor->calculateDistance();
+    
     if(tempDistance<MIN_DISTANCE){
         m_Angle=-90;
     }
