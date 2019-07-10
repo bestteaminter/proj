@@ -1,5 +1,5 @@
-#ifndef DEV_SERVO
-#define DEV_SERVO
+#ifndef I_SERVO_H
+#define I_SERVO_H
 
 class IServo{
     public:
