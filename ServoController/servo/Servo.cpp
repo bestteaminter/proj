@@ -6,10 +6,8 @@
 #define MAX_ANGLE 180
 #define MID_ANGLE 90
 
-Servo::Servo(int pin)
+Servo::Servo(int pin):m_Pin(pin)
 {
-    m_Pin = pin;
-
     init();
 }
 

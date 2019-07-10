@@ -1,6 +1,6 @@
 
-#ifndef DEV_DISTANCE
-#define DEV_DISTANCE
+#ifndef I_DISTANCE_SENSOR_H
+#define I_DISTANCE_SENSOR_H
 
 
 class IDistanceSensor

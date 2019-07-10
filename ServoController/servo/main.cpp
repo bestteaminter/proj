@@ -1,5 +1,6 @@
 #include <iostream>
 #include <wiringPi.h>
+#include <memory>
 #include "Servo.h"
 
 using namespace std;
@@ -11,7 +12,7 @@ int main()
 
     wiringPiSetup();
 
-    Servo* servo = new Servo(PIN);
+    auto servo = make_unique<Servo>(PIN);
     servo->setAngle(-90);
     delay(1000);
     servo->setAngle(-25);

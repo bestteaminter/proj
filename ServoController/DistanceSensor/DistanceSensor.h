@@ -1,6 +1,6 @@
 
-#ifndef DEV_DISTANCESEN
-#define DEV_DISTANCESEN
+#ifndef DISTANCE_SENSOR_H
+#define DISTANCE_SENSOR_H
 
 #include "IDistanceSensor.h"
 
@@ -13,7 +13,7 @@ class DistanceSensor : public IDistanceSensor{
         void sendSignal();
         int checkDistance();
     public:
-        DistanceSensor(int, int);
+        DistanceSensor(int pinEcho, int pinTrigger);
         int calculateDistance();
 };
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <wiringPi.h>
+#include <memory>
 #include "DistanceSensor.h"
 
 using namespace std;
@@ -11,9 +12,8 @@ int main()
 {
     wiringPiSetup();
 
-    DistanceSensor* ds = new DistanceSensor(PIN_ECHO, PIN_TRIGGER);
+    auto ds = make_unique<DistanceSensor>(PIN_ECHO, PIN_TRIGGER);
     cout << ds->calculateDistance() << " cm" << endl;
-    delete ds;
 
     return 0;
 }

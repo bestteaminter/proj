@@ -36,11 +36,8 @@ int DistanceSensor::checkDistance()
     return distance;
 }
 
-DistanceSensor::DistanceSensor(int pinEcho, int pinTrigger)
+DistanceSensor::DistanceSensor(int pinEcho, int pinTrigger):m_PinEcho(pinEcho),m_PinTrigger(m_PinTrigger)
 {
-    m_PinEcho = pinEcho;
-    m_PinTrigger = pinTrigger;
-
     init();
 }
 
