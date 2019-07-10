@@ -7,6 +7,7 @@ class Servo : public IServo
 {
     private:
         int m_Pin;
+        double m_Unit;
 
         void init();
     public:

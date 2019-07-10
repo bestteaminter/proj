@@ -21,7 +21,7 @@ int main(){
     {
         servoController->calculateAngle();
         servoController->runServoToAngle();
-        delay(500);
+        delay(100);
     }
     
 

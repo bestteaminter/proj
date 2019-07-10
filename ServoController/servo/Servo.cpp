@@ -1,6 +1,11 @@
 #include <wiringPi.h>
 #include "Servo.h"
 
+#define MIN 55
+#define MAX 250
+#define MAX_ANGLE 180
+#define MID_ANGLE 90
+
 Servo::Servo(int pin)
 {
     m_Pin = pin;
@@ -16,11 +21,13 @@ void Servo::init()
 
     pwmSetClock(192);
     pwmSetRange(2000);
+
+    m_Unit = (MAX - MIN) / MAX_ANGLE;
 }
 
 void Servo::setAngle(int angle)
 {
-    int value = (angle + 90) * 1.11;
+    int value = (angle + MID_ANGLE) * m_Unit;
 
-    pwmWrite(m_Pin, 51 + value);
+    pwmWrite(m_Pin, MIN + value);
 }
