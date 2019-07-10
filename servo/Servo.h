@@ -8,5 +8,5 @@ class Servo : public IServo
         void Init();
     public:
         Servo(int);
-        void setAngle(int);
+        void SetAngle(int);
 };

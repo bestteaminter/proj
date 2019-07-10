@@ -1,4 +1,4 @@
 class IServo{
     public:
-        virtual void setAngle(int) = 0;
+        virtual void SetAngle(int) = 0;
 };

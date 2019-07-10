@@ -18,7 +18,7 @@ void Servo::Init()
     pwmSetRange(2000);
 }
 
-void Servo::setAngle(int angle)
+void Servo::SetAngle(int angle)
 {
     int value = (angle + 90) * 1.11;
 
