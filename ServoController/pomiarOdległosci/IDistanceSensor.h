@@ -6,7 +6,7 @@
 class IDistanceSensor
 {
     public:
-        virtual int CalculateDistance() = 0;
+        virtual int calculateDistance() = 0;
 };
 
 #endif

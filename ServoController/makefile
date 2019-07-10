@@ -1,7 +1,7 @@
 all:program
 
 program: main.o ServoController.o
-	arm-linux-gnueabi-g++ -c main.o ServoController.o servo/Servo.o -lwiringPi
+	arm-linux-gnueabi-g++ main.o ServoController.o servo/Servo.o pomiarOdległosci/DistanceSensor.o -lwiringPi
 
 ServoController.o: ServoController.cpp 
 	arm-linux-gnueabi-g++ -c ServoController.cpp -lwiringPi

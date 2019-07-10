@@ -8,9 +8,9 @@ class Servo : public IServo
     private:
         int m_Pin;
 
-        void Init();
+        void init();
     public:
         Servo(int);
-        void SetAngle(int);
+        void setAngle(int);
 };
 #endif

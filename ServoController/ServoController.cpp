@@ -13,7 +13,7 @@ ServoController::ServoController(std::shared_ptr<IServo> servo_ptr, std::shared_
 }
 
 void ServoController::calculateAngle(){
-    int tempDistance=distanceSensor->CalculateDistance();
+    int tempDistance=distanceSensor->calculateDistance();
     double unit=SCOPE/(MAX-MIN);
     if(tempDistance<MIN){
         angle=-90;
@@ -31,7 +31,9 @@ void ServoController::calculateAngle(){
     }
     std::cout<<"tempDistance: "<<tempDistance<<std::endl;
     std::cout<<"angle: "<<angle<<std::endl;
-    
-    servo->SetAngle(angle);
 
+}
+
+void ServoController::runServoToAngle(){
+    servo->setAngle(angle);
 }

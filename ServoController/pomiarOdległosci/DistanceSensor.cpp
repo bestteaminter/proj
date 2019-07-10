@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void DistanceSensor::Init()
+void DistanceSensor::init()
 {
     pinMode(m_PinTrigger, OUTPUT);
     pinMode(m_PinEcho, INPUT);
@@ -14,14 +14,14 @@ void DistanceSensor::Init()
     delay(2000);
 }
 
-void DistanceSensor::SendSignal()
+void DistanceSensor::sendSignal()
 {
     digitalWrite(m_PinTrigger, HIGH);
     delay(0.1);
     digitalWrite(m_PinTrigger, LOW);
 }
 
-int DistanceSensor::CheckDistance()
+int DistanceSensor::checkDistance()
 {
     cout << "Calculate distance" << endl;
     
@@ -41,10 +41,10 @@ DistanceSensor::DistanceSensor(int pinEcho, int pinTrigger)
     m_PinEcho = pinEcho;
     m_PinTrigger = pinTrigger;
 
-    Init();
+    init();
 }
 
-int DistanceSensor::CalculateDistance(){
-    SendSignal();
-    return CheckDistance();
+int DistanceSensor::calculateDistance(){
+    sendSignal();
+    return checkDistance();
 }

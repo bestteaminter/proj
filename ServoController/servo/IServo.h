@@ -3,7 +3,7 @@
 
 class IServo{
     public:
-        virtual void SetAngle(int) = 0;
+        virtual void setAngle(int) = 0;
 };
 
 #endif

@@ -9,12 +9,12 @@ class DistanceSensor : public IDistanceSensor{
         int m_PinEcho;
         int m_PinTrigger;
 
-        void Init();
-        void SendSignal();
-        int CheckDistance();
+        void init();
+        void sendSignal();
+        int checkDistance();
     public:
         DistanceSensor(int, int);
-        int CalculateDistance();
+        int calculateDistance();
 };
 
 

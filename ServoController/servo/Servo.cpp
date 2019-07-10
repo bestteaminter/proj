@@ -5,10 +5,10 @@ Servo::Servo(int pin)
 {
     m_Pin = pin;
 
-    Init();
+    init();
 }
 
-void Servo::Init()
+void Servo::init()
 {
     pinMode(m_Pin, PWM_OUTPUT);
 
@@ -18,7 +18,7 @@ void Servo::Init()
     pwmSetRange(2000);
 }
 
-void Servo::SetAngle(int angle)
+void Servo::setAngle(int angle)
 {
     int value = (angle + 90) * 1.11;
 

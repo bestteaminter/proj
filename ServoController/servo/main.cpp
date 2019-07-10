@@ -12,15 +12,15 @@ int main()
     wiringPiSetup();
 
     Servo* servo = new Servo(PIN);
-    servo->SetAngle(-90);
+    servo->setAngle(-90);
     delay(1000);
-    servo->SetAngle(-25);
+    servo->setAngle(-25);
     delay(1000);
-    servo->SetAngle(90);
+    servo->setAngle(90);
     delay(1000);
-    servo->SetAngle(25);
+    servo->setAngle(25);
     delay(1000);
-    servo->SetAngle(0);
+    servo->setAngle(0);
     
     // cout << "start" << endl;
     // wiringPiSetup();

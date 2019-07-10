@@ -12,7 +12,7 @@ int main()
     wiringPiSetup();
 
     DistanceSensor* ds = new DistanceSensor(PIN_ECHO, PIN_TRIGGER);
-    cout << ds->CalculateDistance() << " cm" << endl;
+    cout << ds->calculateDistance() << " cm" << endl;
     delete ds;
 
     return 0;

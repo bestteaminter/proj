@@ -1,17 +1,29 @@
 #include <iostream>
+#include <wiringPi.h>
 #include "ServoController.h"
 #include "servo/Servo.h"
-#include "pomiarOdległości/DistanceSensor.h"
+#include "pomiarOdległosci/DistanceSensor.h"
 
 #define PIN_TRIGGER 7
 #define PIN_ECHO 0
+#define PIN_SERVO 1
 
 int main(){
-    std::shared_ptr<IServo> servo_ptr= std::make_shared<Servo>(1);
+
+    wiringPiSetup();
+    
+    std::shared_ptr<IServo> servo_ptr= std::make_shared<Servo>(PIN_SERVO);
     std::shared_ptr<IDistanceSensor> disSen_ptr=std::make_shared<DistanceSensor>(PIN_ECHO, PIN_TRIGGER);
 
     ServoController* servoController = new ServoController(servo_ptr, disSen_ptr);
-    servoController->calculateAngle();
+
+    while (true)
+    {
+        servoController->calculateAngle();
+        servoController->runServoToAngle();
+        delay(500);
+    }
+    
 
     std::cout<<"Start"<<std::endl;
 }
