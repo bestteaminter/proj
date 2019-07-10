@@ -1,5 +1,5 @@
 #include <memory>
-#include "pomiarOdległosci/DistanceSensor.h"
+#include "DistanceSensor/DistanceSensor.h"
 #include "servo/Servo.h"
 
 class ServoController

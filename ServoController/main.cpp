@@ -2,7 +2,7 @@
 #include <wiringPi.h>
 #include "ServoController.h"
 #include "servo/Servo.h"
-#include "pomiarOdległosci/DistanceSensor.h"
+#include "DistanceSensor/DistanceSensor.h"
 
 #define PIN_TRIGGER 7
 #define PIN_ECHO 0
