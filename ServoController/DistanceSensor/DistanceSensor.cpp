@@ -23,7 +23,7 @@ void DistanceSensor::sendSignal()
 
 int DistanceSensor::checkDistance()
 {
-    cout << "Calculate distance" << endl;
+    //cout << "Calculate distance" << endl;
     
     while(digitalRead(m_PinEcho) == LOW){}
     long start = micros();
