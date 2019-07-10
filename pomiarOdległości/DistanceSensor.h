@@ -1,5 +1,6 @@
+#include "IDistanceSensor.h"
 
-class DistanceSensor{
+class DistanceSensor : IDistanceSensor{
     private:
         int m_PinEcho;
         int m_PinTrigger;
