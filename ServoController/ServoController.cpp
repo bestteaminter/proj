@@ -9,6 +9,8 @@
 #define  MID_DISTANCE 50.0
 #define  MAX_ANGLE_SCOPE 180.0
 
+#define COUNT_OF_VALUES 20
+
 
 ServoController::ServoController(std::shared_ptr<IServo> servo_ptr, std::shared_ptr<IDistanceSensor> disSen_ptr):servo(servo_ptr), distanceSensor(disSen_ptr){
     m_Unit = calculateUnit();
@@ -17,9 +19,19 @@ ServoController::ServoController(std::shared_ptr<IServo> servo_ptr, std::shared_
 void ServoController::calculateAngle(){
 
     // std::list<int> distanceValues;
+    // int lastDistance;
 
-    // for(int i = 0; i < 50; i++){
-    //     distanceValues.push_front(distanceSensor->calculateDistance());
+    // for(int i = 0; i < COUNT_OF_VALUES; i++){
+    //     if(i == 0){
+    //         lastDistance = distanceSensor->calculateDistance();
+    //         distanceValues.push_front(lastDistance);
+    //     }else{
+    //         int temp = distanceSensor->calculateDistance();
+    //         if((lastDistance + 2) > temp && (lastDistance - 2) < temp ){
+    //             lastDistance = temp;
+    //             distanceValues.push_front(lastDistance);
+    //         }
+    //     }
     //     delay(5);
     // }
     // std::cout << distanceValues.size() << std::endl;
@@ -32,14 +44,61 @@ void ServoController::calculateAngle(){
 
     // distanceValues.clear();
 
-    int tempDistance = 0;
+    /////////////////////////////////////////////////
+    // std::list<int> distanceValues;
+    // int lastDistance;
 
-    for(int i = 0; i < 50; i++){
-        tempDistance += distanceSensor->calculateDistance();
-        delay(5);
+    // for(int i = 0; i < COUNT_OF_VALUES; i++){
+    //     if(i == 0){
+    //         lastDistance = distanceSensor->calculateDistance();
+    //     }else{
+    //         distanceValues.push_front(distanceSensor->calculateDistance());
+    //     }
+    //     delay(2);
+    // }
+    // std::cout << distanceValues.size() << std::endl;
+    // distanceValues.sort();
+
+    // std::list<int>::iterator it = distanceValues.begin();
+    // std::advance(it, distanceValues.size()/2);
+    
+    // int tempDistance = *it;
+
+    // distanceValues.clear();
+
+    ///////////////////////////////////////////////
+    // int tempDistance = 0;
+
+    // int distanceValues[COUNT_OF_VALUES];
+    // int sum = 0;
+    
+    // for(int i = 0; i < COUNT_OF_VALUES; i++){
+    //     distanceValues[i] = distanceSensor->calculateDistance();
+    //     sum += distanceValues[i];
+    //     delay(1);
+    // }
+
+    // double sr = sum/COUNT_OF_VALUES;
+
+    // for(int i = 0; i < COUNT_OF_VALUES; i++){
+    //     if((sr + 5) > distanceValues[i] && (sr - 5) < distanceValues[i]){
+    //         tempDistance = distanceValues[i];
+    //         break;
+    //     }
+    // }
+
+    /////////////////////////////////////
+
+    int tempDistance = distanceSensor->calculateDistance();
+
+    for(int i = 0; i < COUNT_OF_VALUES; i++){
+        delay(1);
+        tempDistance = (3 * tempDistance + distanceSensor->calculateDistance()) / 4;
     }
 
-    tempDistance = tempDistance / 50;
+    if(tempDistance == 0){
+        return;
+    }
     
     if(tempDistance<MIN_DISTANCE){
         m_Angle=-90;
