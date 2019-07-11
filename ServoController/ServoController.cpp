@@ -89,16 +89,11 @@ void ServoController::calculateAngle(){
 
     /////////////////////////////////////
 
-    int tempDistance = distanceSensor->calculateDistance();
+    // if(tempDistance == 0){
+    //     return;
+    // }
 
-    for(int i = 0; i < COUNT_OF_VALUES; i++){
-        delay(1);
-        tempDistance = (3 * tempDistance + distanceSensor->calculateDistance()) / 4;
-    }
-
-    if(tempDistance == 0){
-        return;
-    }
+    int tempDistance = calculateDistance();
     
     if(tempDistance<MIN_DISTANCE){
         m_Angle=-90;
@@ -124,4 +119,17 @@ int ServoController::calculateUnit(){
 
 void ServoController::runServoToAngle(){
     servo->setAngle(m_Angle);
+}
+
+int ServoController::calculateDistance(){
+
+    int tempDistance = distanceSensor->calculateDistance();
+
+    for(int i = 0; i < COUNT_OF_VALUES; i++){
+        delay(1);
+        tempDistance = (3 * tempDistance + distanceSensor->calculateDistance()) / 4;
+    }
+
+    return tempDistance;
+
 }

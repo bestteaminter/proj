@@ -14,6 +14,7 @@ private:
     std::shared_ptr<IDistanceSensor> distanceSensor;
 
     int calculateUnit();
+    int calculateDistance();
 
 public:
     ServoController(std::shared_ptr<IServo>, std::shared_ptr<IDistanceSensor>);
