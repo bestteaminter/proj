@@ -2,7 +2,7 @@
 #include <iostream>
 #include <wiringPi.h>
 
-#define DEFAULT_FREQUENCY 19200000 //Hz
+constexpr int  DEFAULT_FREQUENCY= 19200000; //Hz
 
 using namespace std;
 
