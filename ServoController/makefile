@@ -13,6 +13,10 @@ clean:
 	rm -rf *.o a.out
 
 
+send:
+	sshpass -p "raspberry" scp -r a.out pi@raspberrypi.local:/home/pi/Desktop
+
+
 
 
 # all: program
