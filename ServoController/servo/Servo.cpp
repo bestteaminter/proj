@@ -1,10 +1,10 @@
 #include <wiringPi.h>
 #include "Servo.h"
 
-#define MIN 55
-#define MAX 250
-#define MAX_ANGLE 180
-#define MID_ANGLE 90
+constexpr int MIN= 55;
+constexpr int MAX= 250;
+constexpr int MAX_ANGLE= 180;
+constexpr int MID_ANGLE= 90;
 
 Servo::Servo(int pin):m_Pin(pin)
 {

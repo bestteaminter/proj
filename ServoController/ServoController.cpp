@@ -4,12 +4,11 @@
 #include <wiringPi.h>
 #include "ServoController.h"
 
-#define  MIN_DISTANCE 25.0
-#define  MAX_DISTANCE 75.0
-#define  MID_DISTANCE 50.0
-#define  MAX_ANGLE_SCOPE 180.0
-
-#define COUNT_OF_VALUES 20
+constexpr double  MIN_DISTANCE= 25.0;
+constexpr double  MAX_DISTANCE= 75.0;
+constexpr double  MID_DISTANCE= 50.0;
+constexpr double  MAX_ANGLE_SCOPE= 180.0;
+constexpr double  COUNT_OF_VALUES= 20;
 
 
 ServoController::ServoController(std::shared_ptr<IServo> servo_ptr, std::shared_ptr<IDistanceSensor> disSen_ptr):servo(servo_ptr), distanceSensor(disSen_ptr){
